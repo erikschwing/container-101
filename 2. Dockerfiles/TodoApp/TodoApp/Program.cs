@@ -9,10 +9,14 @@ internal class Program
 
         var app = builder.Build();
 
-        app.UseRouting();
         app.UseStaticFiles();
 
+        app.UseRouting();
+
         app.MapRazorPages();
+
+        app.Logger.LogInformation("ContentRoot={ContentRoot}", app.Environment.ContentRootPath);
+        app.Logger.LogInformation("WebRoot={WebRoot}", app.Environment.WebRootPath);
 
         app.Run();
 

@@ -31,6 +31,10 @@ For more examples and ideas, visit:
 
 Als je nu `sudo docker ps` runt, zal je zien dat de container zelf alweer is afgesloten omdat hij zijn einde heeft bereikt. Beetje saai wel.
 
+Volg de suggestie uit de hello-world op en run `docker run -it ubuntu bash`.
+Je hebt nu een interactive BASH sessie in een ubuntu container. 
+Gerbruik `exit` om de container te veralten.
+
 Laten we een wat uitdagendere image starten.
 
 Run het volgende commando:

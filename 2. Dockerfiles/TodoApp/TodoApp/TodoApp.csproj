@@ -11,7 +11,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Content Include="todo.txt">
+    <Content Include="Data\todo.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
   </ItemGroup>

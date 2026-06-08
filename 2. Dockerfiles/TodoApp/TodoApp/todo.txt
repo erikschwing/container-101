@@ -1,4 +1,0 @@
-{ "Id":1, "Title":"Build the Docker image", "Done":true }
-{ "Id":2, "Title":"Run the container", "Done":false }
-{ "Id":3, "Title":"Open the app in the browser", "Done":false }
-{ "Id":4, "Title":"Persist the state", "Done":false }

@@ -12,6 +12,11 @@ En run:
 
 De app is nu beschikbaar op https://localhost:8080
 
+Let op: als je de app herstart, is opeens je todo list weg!
+Gelukkig is de app hier om voorbereid.
+
+Run je container met een volume (-v) op de map /app/Data/ en kijk wat er nu gebeurt als je herstart!
+
 ## 2.2 Multi-stage image
 De 1e image die je hebt gemaakt gebruikt waarschijnlijk nog de image `mcr.microsoft.com/dotnet/sdk:8.0-alpine`. 
 Dit is een hele grote image met allerlei tools die niet nodig zijn op je productie systeem.

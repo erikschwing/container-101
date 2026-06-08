@@ -10,7 +10,7 @@ public class IndexModel : PageModel
     private static readonly object _lock = new();
 
     private static int _nextId = 4;
-    private static TodoRepository _todoRepository = new TodoRepository("todo.txt");
+    private static TodoRepository _todoRepository = new TodoRepository("Data/todo.txt");
 
     [BindProperty]
     public string? NewTitle { get; set; }

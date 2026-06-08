@@ -1,0 +1,27 @@
+services:
+  app:
+    build: .
+    ports:
+      - "8080:8080"
+    networks:
+      - todo
+    volumes:
+      - ./appsettings.json:/app/appsettings.json:ro
+
+  db:
+    image: postgres:19beta1-alpine
+    restart: unless-stopped
+    environment:
+      - POSTGRES_USER=${POSTGRES_USER}
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
+      - PGDATA=/data/postgres
+    volumes:
+      - pgdata:/data/postgres
+    networks:
+      - todo
+
+volumes:
+  pgdata:
+
+networks:
+  todo:

@@ -1,0 +1,81 @@
+﻿@page
+@model TodoApp.Pages.IndexModel
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Docker Workshop Todo</title>
+    <link rel="stylesheet" href="~/css/site.css"/>
+</head>
+<body>
+    <div class="container">
+        <section class="hero">
+            <h1>🚀 Docker Workshop Todo App</h1>
+            <p>
+                A small Razor Pages app for your Docker workshop.
+                Add tasks, mark them done, and delete them.
+            </p>
+        </section>
+
+        <section class="stats">
+            <div class="stat">
+                <div class="label">Total tasks</div>
+                <div class="value">@Model.TotalCount</div>
+            </div>
+            <div class="stat">
+                <div class="label">Open</div>
+                <div class="value">@Model.OpenCount</div>
+            </div>
+            <div class="stat">
+                <div class="label">Done</div>
+                <div class="value">@Model.DoneCount</div>
+            </div>
+        </section>
+
+        <section class="panel">
+            <form method="post" asp-page-handler="Add" class="add-form">
+                <input asp-for="NewTitle" type="text" placeholder="Add a new task..." />
+                <button class="btn btn-add" type="submit">Add task</button>
+            </form>
+
+            @if (!Model.Todos.Any())
+            {
+                <div class="empty">No tasks yet. Add one above 👆</div>
+            }
+            else
+            {
+                <ul class="todo-list">
+                    @foreach (var todo in Model.Todos)
+                    {
+                        <li class="todo-item">
+                            <div>
+                                <span class="todo-title @(todo.Done ? "done" : "")">@todo.Title</span>
+                                <span class="badge">#@todo.Id</span>
+                            </div>
+
+                            <div class="actions">
+                                <form method="post" asp-page-handler="Toggle" class="inline-form">
+                                    <input asp-for="@todo.Id" type="hidden" name="id" value="@todo.Id" />
+                                    <button class="btn btn-toggle" type="submit">
+                                        @(todo.Done ? "Mark open" : "Mark done")
+                                    </button>
+                                </form>
+
+                                <form method="post" asp-page-handler="Delete" class="inline-form">
+                                    <input asp-for="@todo.Id" type="hidden" name="id" value="@todo.Id" />
+                                    <button class="btn btn-delete" type="submit">Delete</button>
+                                </form>
+                            </div>
+                        </li>
+                    }
+                </ul>
+            }
+        </section>
+    </div>
+</body>
+</html>

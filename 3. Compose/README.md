@@ -14,3 +14,5 @@ Het doel van deze opdracht is om een docker-compose file te maken waarmee het vo
 - Definieer de juiste volumes
 - Definieer de netwerken
 
+De docker-compose.yaml file bevat alvast een startpunt. 
+Gebruik docker docs voor referentie `https://docs.docker.com/reference/compose-file/networks/`

@@ -8,7 +8,7 @@ Build de image:
 `docker build -t todo .`
 
 En run:
-`docker run -p 8080:8080 --name todo todo`.
+`docker run -p 8080:8080 --name todo todo`
 
 De app is nu beschikbaar op https://localhost:8080
 
@@ -22,7 +22,9 @@ De 1e image die je hebt gemaakt gebruikt waarschijnlijk nog de image `mcr.micros
 Dit is een hele grote image met allerlei tools die niet nodig zijn op je productie systeem.
 
 Probeer je dockerfile te optimaliseren met een multi-stage build.
-De FINAL stage kan op basis van de image `mcr.microsoft.com/dotnet/aspnet:8.0-alpine`
+Maak van de eerste FROM een "build" stage die de SDK image gebruikt.
+Voeg een tweede FROM toe als "final" op basis van de image `mcr.microsoft.com/dotnet/aspnet:8.0-alpine`.
+Optimaliseer nu je image en run opnieuw!
 
 ## 2.3 Bonus: een eigen base image maken
 Voor je productie systeem heb je uitgebreide timezone informatie nodig en je wil niet in elke dockerfile opnieuw je dependencies installeren.

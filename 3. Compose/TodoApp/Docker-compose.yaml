@@ -3,8 +3,20 @@ services:
     build: .
     ports:
       - "8080:8080"
+    volumes:
+    networks:
 
   db:
     image: postgres
     ports:
       - "5432:5432"
+    volumes:
+    networks:
+    environment:
+      - name=value
+
+volumes:
+  ?
+
+networks:
+  ?
